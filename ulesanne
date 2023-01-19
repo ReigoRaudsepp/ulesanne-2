@@ -1,0 +1,39 @@
+# Reigo Raudsepp
+
+import pygame
+pygame.init()
+#ekraani seaded
+screen=pygame.display.set_mode([640,480])
+pygame.display.set_caption("Ülesanne 2")
+screen.fill([204, 255, 204])
+
+bg = pygame.image.load('taust.jpg')
+screen.blit(bg,[0,0])
+
+seller = pygame.image.load('seller.png')
+seller = pygame.transform.scale(seller, [340, 260])
+screen.blit(seller,[40,170])
+
+jutumull = pygame.image.load('jutumull.png')
+jutumull = pygame.transform.scale(jutumull, [300, 200])
+screen.blit(jutumull,[250,70])
+
+#lisame teksti
+font = pygame.font.Font(pygame.font.match_font('arial'), 33)
+text = font.render("Tere, ma olen Reigo", True, [255,255,255])
+
+#tekstikasti suurus
+text_width = text.get_rect().width
+text_height = text.get_rect().height
+
+screen.blit(text, [400-text_width/2,160-text_height/2])
+
+pygame.display.flip()
+
+run = True
+while run:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run =False
+
+pygame.quit()
